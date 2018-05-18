@@ -10,14 +10,12 @@
     <th> Activity </th>
     <th> Time </th>
   </tr>
+  {% for activity in activities %}
   <tr>
-    <td> Running </td>
-    <td> 30 min </td>
+    <td> {{ activity.name }} </td>
+    <td> {{ activity.duration }} </td>
   </tr>
-  <tr>
-    <td> Princess Mononoke </td>
-    <td> 2 hours 30 minutes </td>
-  </tr>
+  {% endfor %}
 </table>
 
 {% endblock %}
