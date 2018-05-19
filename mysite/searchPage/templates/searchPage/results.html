@@ -3,9 +3,11 @@
 
 {% block content %}
 
-<h1> test page </h1>
+<h1> Activities To Do: </h1>
 
 <table>
+  <col width="200">
+  <col width="80">
   <tr>
     <th> Activity </th>
     <th> Time </th>
@@ -13,7 +15,7 @@
   {% for activity in activities %}
   <tr>
     <td> {{ activity.name }} </td>
-    <td> {{ activity.duration }} </td>
+    <td> {{ activity.hours }} : {{ activity.minutes }} </td>
   </tr>
   {% endfor %}
 </table>
