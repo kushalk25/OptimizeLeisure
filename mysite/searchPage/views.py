@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse
 from .models import Activity
 from .forms import AddActivityForm, FindActivityForm
 import math
@@ -61,12 +62,19 @@ def results(request):
     for activity in activities:
         hours, mins = formattedTime(activity.duration)
         processed.append({
+            'id': activity.id,
             'name': activity.name,
             'hours': hours,
             'minutes': mins,
         })
 
     return render(request, "searchPage/results.html", {'activities': processed})
+
+
+def delete(request, id):
+    activity = get_object_or_404(Activity, pk=id) # note: pk means primary key
+    activity.delete()
+    return HttpResponse('')
 
 
 def formattedTime(seconds):

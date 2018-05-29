@@ -5,17 +5,23 @@
 
 <h1> Activities To Do: </h1>
 
-<table>
+<table id="activitiesTable">
   <col width="200">
   <col width="80">
   <tr>
     <th> Activity </th>
     <th> Time </th>
+    <th> </th>
   </tr>
   {% for activity in activities %}
   <tr>
     <td> {{ activity.name }} </td>
     <td> {{ activity.hours }} : {{ activity.minutes }} </td>
+    <td>
+      <button class="deleteBtn" data-activity-id="{{activity.id}}">
+          delete
+      </button>
+    </td>
   </tr>
   {% endfor %}
 </table>
