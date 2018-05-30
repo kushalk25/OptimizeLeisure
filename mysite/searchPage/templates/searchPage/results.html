@@ -5,25 +5,27 @@
 
 <h1> Activities To Do: </h1>
 
-<table id="activitiesTable">
-  <col width="200">
-  <col width="80">
-  <tr>
-    <th> Activity </th>
-    <th> Time </th>
-    <th> </th>
-  </tr>
-  {% for activity in activities %}
-  <tr>
-    <td> {{ activity.name }} </td>
-    <td> {{ activity.hours }} : {{ activity.minutes }} </td>
-    <td>
-      <button class="deleteBtn" data-activity-id="{{activity.id}}">
-          delete
-      </button>
-    </td>
-  </tr>
-  {% endfor %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th> Activity </th>
+      <th> Time </th>
+      <th> Delete </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for activity in activities %}
+      <tr>
+        <td> {{ activity.name }} </td>
+        <td> {{ activity.hours }} : {{ activity.minutes }} </td>
+        <td>
+          <button class="deleteBtn btn btn-danger btn-xs" data-activity-id="{{activity.id}}">
+              <span class="glyphicon glyphicon-trash"></span>
+          </button>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
 </table>
 
 <button id="homeBtn"> Home </button>
